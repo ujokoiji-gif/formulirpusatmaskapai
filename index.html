@@ -1,1 +1,138 @@
 
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untuk Sayang ❤️</title>
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  color: white;
+  text-align: center;
+  background: linear-gradient(135deg, #ff758c, #ff4b6e, #7b2ff7);
+  overflow: hidden;
+}
+
+.card {
+  width: 90%;
+  max-width: 380px;
+  padding: 35px 25px;
+  border: 1px solid #ffffff55;
+  border-radius: 25px;
+  background: #ffffff20;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 40px #0002;
+  z-index: 2;
+}
+
+.heart {
+  font-size: 75px;
+  animation: beat 1s infinite;
+}
+
+h1 { font-size: 32px; }
+
+p {
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+button {
+  border: none;
+  border-radius: 30px;
+  padding: 14px 25px;
+  margin-top: 12px;
+  background: white;
+  color: #ff416c;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:active { transform: scale(.95); }
+
+#pesan {
+  display: none;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.floating {
+  position: absolute;
+  bottom: -40px;
+  animation: naik 6s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes beat {
+  50% { transform: scale(1.2); }
+}
+
+@keyframes naik {
+  to {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="heart">❤️</div>
+  <h1>Hai, Sayang!</h1>
+  <p>
+    Ada satu hal yang ingin aku bilang...
+    <br>
+    Kamu adalah alasan aku tersenyum setiap hari.
+    Terima kasih sudah hadir di hidupku. 🥰
+  </p>
+
+  <button onclick="bukaPesan()">
+    Klik di sini 💌
+  </button>
+
+  <div id="pesan">
+    Aku sayang kamu ❤️🥹
+    <br>
+    Jangan pernah bosan sama aku ya!
+    <br>
+    💕 I Love You 💕
+  </div>
+</div>
+
+<script>
+function bukaPesan() {
+  document.getElementById("pesan").style.display = "block";
+}
+
+function buatHati() {
+  const hati = document.createElement("div");
+  hati.className = "floating";
+  hati.textContent = ["❤️", "💕", "💖", "💗"][
+    Math.floor(Math.random() * 4)
+  ];
+
+  hati.style.left = Math.random() * 100 + "vw";
+  hati.style.fontSize = (18 + Math.random() * 25) + "px";
+  hati.style.animationDuration = (4 + Math.random() * 4) + "s";
+
+  document.body.appendChild(hati);
+
+  setTimeout(() => hati.remove(), 8000);
+}
+
+setInterval(buatHati, 500);
+</script>
+
+</body>
+</html>
+
